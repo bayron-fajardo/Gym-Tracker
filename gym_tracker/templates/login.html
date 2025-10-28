@@ -1,6 +1,37 @@
-<h2>Iniciar sesión</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
-</form>
+{% extends 'layout.html' %}
+{% load static %}
+{% block title%} Login {% endblock %}
+<H2>UWU</H2>
+{% block content %}
+<div class="text-center my-4">
+  <img src="{% static 'img/logo.png' %}" alt="Logo del Gym" class="img-fluid rounded" style="max-width: 200px;">
+</div>
+<div class="card mx-auto shadow-lg border-0" style="width: 22rem; margin-top: 1rem;">
+  <div class="card-body">
+    <h5 class="card-title text-center mb-4">Login</h5>
+    <form>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-check d-flex justify-content-end mb-3">
+        <input class="form-check-input me-2" type="checkbox" id="checkDefault">
+        <label class="form-check-label" for="checkDefault">Recordarme</label>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-secondary btn-lg mb-3">Iniciar sesión</button>
+        <a href="#" class="btn btn-outline-secondary btn-lg">Registrarse</a>
+      </div>
+      <div class="text-center py-4">
+        <a href="">¿Has olvidado tu contraseña?</a>
+      </div>
+      
+    </form>
+  </div>
+</div>
+
+{% endblock %}
