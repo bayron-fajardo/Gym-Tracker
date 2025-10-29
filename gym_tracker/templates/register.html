@@ -1,0 +1,54 @@
+{% extends 'layout.html '%}
+{% load static %}
+{% block title%} Registro {% endblock %}
+
+{% block content %}
+<div class="text-center my-4">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-light alert-{{ message.tags }} text-center" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <img src="{% static 'img/logo.png' %}" alt="Logo del Gym" class="img-fluid rounded" style="max-width: 200px;">
+  </div>
+  <div class="card mx-auto shadow-lg border-0" style="width: 22rem; margin-top: 1rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">Register</h5>
+      <form method="POST" action="{% url 'registrarse'%}">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Usuario" name="usuario" required>
+          <label for="floatingInput">Usuario</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="correo" required>
+            <label for="floatingInput">Correo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="Confirmar correo" name="confirmar_correo" required>
+            <label for="floatingPassword">Confirmar correo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword"  name="contrasenia" required>
+            <label for="floatingInput">Contraseña</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword"  name="confirmar_contrasenia" required>
+            <label for="floatingPassword">Confirmar contraseña</label>
+          </div>
+        
+        <div class="d-grid">
+          <button type="submit" class="btn btn-secondary btn-lg mb-3">Registrarse</button>
+        </div>
+        <div class="text-center py-4">
+          <a href="{% url 'login'%}">¿Ya tienes cuenta? inicia sesion</a>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+  
+{% endblock %}
