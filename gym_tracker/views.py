@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Usuario
+from .models import Usuario, EjercicioBase
 
 
 def iniciar_sesion(request):
@@ -58,5 +58,6 @@ def registrarse(request):
 @login_required
 def home(request):
     
-
-    return render(request, 'home.html')
+    ejercicios = EjercicioBase.objects.all()
+    
+    return render(request, 'home.html', {'ejercicios' : ejercicios})

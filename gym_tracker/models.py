@@ -47,7 +47,7 @@ class Sesion(models.Model):
     sensaciones = models.CharField(max_length=250)
 
 class EjercicioBase(models.Model):
-    id_ejercicio = models.CharField(max_length=20, primary_key=True, editable=False)
+    id_ejercicio = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=250)
     grupo_muscular = models.CharField(max_length=250)
     descripcion = models.CharField(max_length=250)
